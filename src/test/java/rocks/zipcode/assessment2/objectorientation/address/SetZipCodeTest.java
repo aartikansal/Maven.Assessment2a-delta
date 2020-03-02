@@ -15,8 +15,8 @@ public class SetZipCodeTest {
         String expected = "19720";
 
         // when
-        address.setZipcode(expected);
-        String actual = address.getZipcode();
+        address.setzipcode(expected);
+        String actual = address.getzipcode();
 
         // then
         Assert.assertEquals(expected, actual);
@@ -29,8 +29,8 @@ public class SetZipCodeTest {
         String expected = "18713";
 
         // when
-        address.setZipcode(expected);
-        String actual = address.getZipcode();
+        address.setzipcode(expected);
+        String actual = address.getzipcode();
 
         // then
         Assert.assertEquals(expected, actual);

@@ -25,7 +25,7 @@ public class AddressConstructorTest {
         Assert.assertEquals(expectedLine2, address.getAddressLine2());
         Assert.assertEquals(expectedCity, address.getCity());
         Assert.assertEquals(expectedState, address.getState());
-        Assert.assertEquals(expectedZipcode, address.getZipcode());
+        Assert.assertEquals(expectedZipcode, address.getzipcode());
     }
 
     @Test
@@ -45,6 +45,6 @@ public class AddressConstructorTest {
         Assert.assertEquals(expectedLine2, address.getAddressLine2());
         Assert.assertEquals(expectedCity, address.getCity());
         Assert.assertEquals(expectedState, address.getState());
-        Assert.assertEquals(expectedZipcode, address.getZipcode());
+        Assert.assertEquals(expectedZipcode, address.getzipcode());
     }
 }

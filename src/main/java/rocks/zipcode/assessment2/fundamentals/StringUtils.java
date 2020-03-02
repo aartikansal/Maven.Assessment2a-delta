@@ -9,8 +9,15 @@ public class StringUtils {
      * @param amountOfPadding - amount of padding to be flushed left
      * @return `stringToBePadded` flushed right by left-padding
      */
+    public static String buildPad(Integer amountOfPadding){
+        StringBuilder pad= new StringBuilder();
+        for(int i =0; i< amountOfPadding; i++){
+            pad.append(" ");
+        }
+        return pad.toString();
+    }
     public static String padLeft(String stringToBePadded, int amountOfPadding) {
-        return null;
+        return buildPad(amountOfPadding-stringToBePadded.length())+stringToBePadded;
     }
 
     /**
@@ -19,7 +26,7 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by right-padding
      */
     public static String padRight(String stringToBePadded, int amountOfPadding) {
-        return null;
+        return stringToBePadded +buildPad(amountOfPadding-stringToBePadded.length());
     }
 
     /**
@@ -28,7 +35,11 @@ public class StringUtils {
      * @return the string repeated and concatenated `n` times
      */
     public static String repeatString(String stringToBeRepeated, int numberOfTimeToRepeat) {
-        return null;
+        StringBuilder output= new StringBuilder();
+        for(int i =0; i<numberOfTimeToRepeat; i++){
+            output.append(stringToBeRepeated);
+        }
+        return output.toString();
     }
 
     /**
@@ -36,22 +47,50 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        return null;
+        Boolean alpha = true;
+        for (int i = 0; i < string.length(); i++) {
+            String strToCheck = String.valueOf(string.charAt(i)).toUpperCase();
+            if (!strToCheck.matches("[A-Z]") && !strToCheck.matches(" ")) {
+                alpha = false;
+            }
+        }
+        return alpha;
     }
-
     /**
      * @param string - string to be evaluated
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        return null;
-    }
+       Boolean numeric= true;
+       for(int i=0;i<string.length();i++){
+           if(!String.valueOf(string.charAt(i)).matches(" 0-9")){
+               numeric = false;
+           }
+       }
+         return numeric;
+        }
 
     /**
      * @param string - string to be evaluated
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        return null;
+
+        Boolean alpha = isNumericString(string);
+        Boolean numeric = isNumericString(string);
+        Boolean special = true;
+        if(alpha || numeric) special = false;
+        for(int i = 0; i<string.length();i++){
+            String strToCheck = String.valueOf(string.charAt(i));
+            if(strToCheck.toUpperCase().matches("[A-z]")){
+                special = false;
+
+            }
+        }
+        return special;
+
+
+
+
     }
 }
